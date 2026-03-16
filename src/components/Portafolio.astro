@@ -1,0 +1,86 @@
+---
+
+import { Image } from 'astro:assets';
+import imgEncua from '../assets/productos/encua-1.jpg';
+
+const categories = [
+  "TODO", "EDICIÓN Y ENCUADERNACIÓN", "DISPLAYS", "PACKAGING", 
+  "DESPLEGABLES", "VINILOS", "CALENDARIOS", "STAMPING", "ADHESIVOS"
+];
+
+const projects = [
+  { title: "Editorial Offsetti",                category: "Edición", image: imgEncua },
+  { title: "Libro Corporativo",                 category: "Edición", image:imgEncua },
+  { title: "Pensar Duele",                      category: "Edición", image:imgEncua },
+  { title: "La Arquitectura de las Emociones",  category: "Edición", image:imgEncua },
+  { title: "La Caza - El Corte Inglés",         category: "Edición", image:imgEncua },
+  { title: "Catálogo Técnico",                  category: "Edición", image:imgEncua },
+  { title: "Libro de Arte",                     category: "Edición", image:imgEncua },
+  { title: "Revista Premium",                   category: "Edición", image:imgEncua },
+];
+---
+
+<section class="py-20 bg-gray-50 px-6">
+  <div class="max-w-[1600px] mx-auto">
+    <div class="flex flex-wrap justify-center gap-2 mb-16">
+      {categories.map((category, index) => (
+        <button class={`px-6 py-2.5 text-xs font-bold uppercase tracking-widest transition-colors duration-300 rounded-sm ${index === 0 ? 'bg-offsetti-blue text-white' : 'bg-black text-white hover:bg-offsetti-blue'}`}>
+          {category}
+        </button>
+      ))}
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-10 gap-y-16">
+      {projects.map((project) => (
+        <div class="relative group flex flex-col items-center cursor-pointer">
+            
+            <Image 
+                src={project.image} 
+                alt={project.title} 
+                class="relative z-10 max-w-[90%] max-h-[90%] object-contain transform group-hover:scale-105 transition-transform duration-500 clickable-img"
+                loading="lazy"
+            />
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <dialog id="lightbox" class="bg-black/5 w-full h-full max-w-none max-h-none p-0 backdrop:bg-black/20 border-none outline-none">
+    <div class="relative w-full h-full flex items-center justify-center p-4 md:p-10">
+      <button id="close-lightbox" class="absolute top-5 right-5 text-white text-4xl font-light hover:text-offsetti-blue">&times;</button>
+      <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[90vh] object-contain shadow-2xl" />
+    </div>
+  </dialog>
+</section>
+
+<style>
+  dialog::backdrop {
+    background: rgba(0, 0, 0, 0.9);
+  }
+  /* Evitar scroll cuando el modal está abierto */
+  body:has(dialog[open]) {
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  const dialog = document.getElementById('lightbox') as HTMLDialogElement;
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+  const closeBtn = document.getElementById('close-lightbox');
+  const images = document.querySelectorAll('.clickable-img');
+
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      // Tomamos el src de la imagen clickeada (asegúrate de obtener la URL procesada por Astro)
+      const src = (img as HTMLImageElement).src;
+      lightboxImg.src = src;
+      dialog.showModal();
+    });
+  });
+
+  // Cerrar al hacer click en el botón o fuera de la imagen
+  closeBtn?.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+</script>
