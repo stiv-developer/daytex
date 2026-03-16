@@ -1,8 +1,160 @@
 ---
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import LineasTrabajo from "../components/lineas-trabajo.astro";
+import Layout from '../layouts/BlogPost.astro';
+import { Image } from 'astro:assets';
+import imgArtesFondo from '../assets/logistica/Artes-Graficas-Logistica-fondo.jpg';
+
+import caorusel2 from '../assets/logistica/carousel/Artes-Graficas-Logistica-2.jpg';
+import caorusel4 from '../assets/logistica/carousel/Artes-Graficas-Logistica-4.jpg';
+import caorusel6 from '../assets/logistica/carousel/Artes-Graficas-Logistica-6.jpg';
+import caorusel10 from '../assets/logistica/carousel/Artes-Graficas-Logistica-10.jpg';
+
+
+const images = [
+  { src: caorusel2, alt: "Detalle vehículo Offsetti" },
+  { src: caorusel4, alt: "Furgoneta comercial" },
+  { src: caorusel6, alt: "Fachada Almacén Central" },
+  { src: caorusel10, alt: "Stock de papel Creator" },
+];
 ---
 
-<Header />
-<h1>Logistica</h1>
-<Footer />
+<Layout
+	title="Logistica"
+	description="Lorem ipsum dolor sit amet"
+> 
+     <section>
+        <div class="grid md:grid-cols-2 mt-10">
+            <div class="bg-offsetti-dark text-white text-end p-5">
+                <h1 class="text-xl">Almacenamiento y transporte</h1>
+                <h1 class="text-3xl">Artes Gráficas | Logistica</h1>
+            </div>
+            <div class="p-5">
+                <h2 class="text-5xl text-center md:text-start">OFFSETTI</h2>
+            </div>
+        </div>
+    </section>
+    <section class="py-16 md:py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <div class="space-y-12">
+                
+                <article class="space-y-4">
+                <h2 class="text-xl md:text-2xl font-light text-gray-500 border-b border-gray-100 pb-2">
+                    Artes Gráficas | Imprenta | <span class="text-gray-800 font-normal">Almacenamiento</span>
+                </h2>
+                <div class="text-gray-600 leading-relaxed space-y-4">
+                    <p>
+                    Disponemos de una importante infraestructura de almacenamiento en dos naves, lo que nos permite disponer de un <strong>gran stock</strong> y afrontar plazos muy cortos de <strong>producción</strong>. Más de 3000 metros cuadrados para diseñar, producir, almacenar y enviar el producto que necesitas, con la mayor calidad y garantía posible.
+                    </p>
+                    <p>
+                    No multipliques tus esfuerzos, nosotros nos encargamos de la creatividad, la <strong>preimpresión</strong>, la <strong>impresión</strong>, la <strong>personalización</strong> y el envío. Todo ello en tiempo record y con la máxima calidad.
+                    </p>
+                </div>
+                </article>
+
+                <article class="space-y-4">
+                <h2 class="text-xl md:text-2xl font-light text-gray-500 border-b border-gray-100 pb-2">
+                    Artes Gráficas | Imprenta | <span class="text-gray-800 font-normal">Transporte</span>
+                </h2>
+                <div class="text-gray-600 leading-relaxed space-y-4">
+                    <p>
+                    Amplia y moderna flota para garantizar un transporte rápido, seguro y respetuoso con el medio ambiente.
+                    </p>
+                    <p>
+                    Dos camiones, tres furgones de gran capacidad, y vehículos eléctricos para realizar labores comerciales y de repartos menores.
+                    </p>
+                </div>
+                </article>
+
+                <div class="pt-4">
+                <p class="text-lg md:text-xl font-light text-gray-800 italic border-l-4 border-offsetti-blue pl-4">
+                    Offsetti | Impresión y Logística respetuosas con el medio ambiente
+                </p>
+                </div>
+            </div>
+
+            <div class="relative group">
+                <div class="absolute -inset-4 bg-gray-100 -z-10 rounded-2xl transform rotate-2 group-hover:rotate-0 transition-transform duration-500"></div>
+
+                <Image 
+                    src={imgArtesFondo} 
+                    alt="Flota de vehículos de transporte Offsetti" 
+                    class="w-full h-auto rounded-xl shadow-2xl grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
+                />
+                <!-- <div class="absolute bottom-6 right-6 bg-offsetti-blue text-white px-4 py-2 text-xs font-bold uppercase tracking-widest shadow-xl">
+                Entrega Propia
+                </div> -->
+            </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="bg-[#d1d5db] py-12 overflow-hidden w-full">
+  <div class="carousel-container relative flex">
+    <div id="carousel-track" class="flex gap-4 animate-scroll">
+      {images.map((img) => (
+        <div class="carousel-item flex-shrink-0">
+          <div class="h-[300px] md:h-[450px] w-auto shadow-md border-x-4 border-[#d1d5db] bg-white">
+
+            <Image src={img.src} 
+              alt={img.alt} 
+              class="h-full w-auto object-cover" />
+          </div>
+        </div>
+      ))}
+      {/* El JS clonará estos elementos aquí para el efecto infinito */}
+    </div>
+  </div>
+</section>
+    <LineasTrabajo />
+</Layout>
+
+<style>
+  .carousel-container {
+    width: 100%;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  .animate-scroll {
+    display: flex;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+  }
+
+  /* Pausar al pasar el mouse (opcional, muy profesional) */
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      /* Se moverá la mitad del ancho total (que es el set original) */
+      transform: translateX(-50%);
+    }
+  }
+
+  .carousel-item img {
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+</style>
+
+<script>
+  function setupCarousel() {
+    const track = document.getElementById('carousel-track');
+    if (!track) return;
+
+    // Clonamos el contenido una vez para que cuando el primero termine, 
+    // el segundo ya esté entrando y no se vea el hueco blanco.
+    const items = track.innerHTML;
+    track.innerHTML = items + items;
+  }
+
+  // Ejecutar al cargar y si usas View Transitions de Astro
+  setupCarousel();
+  document.addEventListener('astro:after-swap', setupCarousel);
+</script>
