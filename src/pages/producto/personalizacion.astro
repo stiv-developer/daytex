@@ -1,0 +1,117 @@
+---
+import LineasTrabajo from "../../components/lineas-trabajo.astro";
+import Layout from '../../layouts/BlogPost.astro';
+import { Image } from 'astro:assets';
+import imgDiseno from '../../assets/lineas-trabajo/personalizacion/Artes-Graficas-Personalizacion-3.jpg';
+
+import img1 from '../../assets/lineas-trabajo/personalizacion/carousel/Artes-Graficas-Personalizacion-1.jpg';
+import img2 from '../../assets/lineas-trabajo/personalizacion/carousel/Artes-Graficas-Personalizacion-2.jpg';
+import img3 from '../../assets/lineas-trabajo/personalizacion/carousel/Artes-Graficas-Personalizacion-3.jpg';
+import img4 from '../../assets/lineas-trabajo/personalizacion/carousel/Artes-Graficas-Personalizacion-4.jpg';
+import img5 from '../../assets/lineas-trabajo/personalizacion/carousel/Artes-Graficas-Personalizacion-5.jpg';
+
+const images = [
+    { src: img1, alt: 'Artes-Graficas-Personalizacion-1'},
+    { src: img2, alt: 'Artes-Graficas-Personalizacion-2'},
+    { src: img3, alt: 'Artes-Graficas-Personalizacion-3'},
+    { src: img4, alt: 'Artes-Graficas-Personalizacion-4'},
+    { src: img5, alt: 'Artes-Graficas-Personalizacion-5'},
+]
+---
+
+<Layout title="Personalización" description="asda">
+    <section>
+        <div class="bg-[#848484] grid md:grid-cols-2 mt-10">
+            <div class="bg-offsetti-dark text-white md:text-end p-5 my-10">
+                <h1 class="text-xl">Líneas de trabajo</h1>
+                <h1 class="text-3xl">Artes Gráficas | Personalización</h1>
+            </div>
+            <div class="p-5 hidden md:flex items-center">
+                <h2 class="text-white text-5xl text-center md:text-start">OFFSETTI</h2>
+            </div>
+        </div>
+    </section>
+
+     <section class="w-full grid  md:grid-cols-2">
+        <div class="bg-white p-10">
+            <h2 class="text-2xl md:text-3xl">Campañas de marketing personalizadas</h2>
+            <div>
+                <p class="md:text-xl py-2 md:py-5">En offsetti damos un paso más incluyendo en nuestras propias instalaciones personalizado Inkjet y láser pudiendo ser más rápidos y ágiles a la hora de confeccionar campañas de Marketing directo.</p>
+                <p class="md:text-xl py-2 md:py-5">Máquina de Inkjet de alto rendimiento (30.000 ejemplares hora) con sistemas de introducción automático.</p>
+                <p class="md:text-xl py-2 md:py-5">Máquina de impresión Láser Xerox.</p>
+                <p class="md:text-xl py-2 md:py-5">Tratamiento de Bases de Datos, clasificación postal, puesta en correos.</p>
+                <p class="md:text-xl py-2 md:py-5">Realizamos para ti el proceso completo, desde el diseño, la preimpresión, la impresión, la encuadernación, la personalización y el transporte y logística.</p>
+                <p class="md:text-2xl py-2 md:py-5">Artes Gráficas | Personalización rápida y fiable</p>
+            </div>
+        </div>
+        <div class="md:flex md:justify-end">
+            <Image src={imgDiseno} alt="Imagen diseño Grafico" class="md:w-[80%] md:h-[700px]"/>
+        </div>
+    </section>
+
+    <section class="bg-[#848484] py-20 overflow-hidden w-full">
+        <div class="carousel-container relative flex">
+            <div id="carousel-track" class="flex gap-4 animate-scroll">
+
+                {images.map((img) => (
+                    <div class="carousel-item flex-shrink-0">
+                        <div class="h-[300px] md:h-[450px] w-auto shadow-md border-x-4 border-[#d1d5db] bg-white">
+
+                            <Image src={img.src} 
+                            alt={img.alt} 
+                            class="h-full w-auto object-cover" />
+                        </div>
+                    </div>
+                ))}
+
+            </div>
+        </div>
+    </section>
+
+    <LineasTrabajo />
+</Layout>
+
+<style>
+
+    .carousel-container {
+        width: 100%;
+        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+    .animate-scroll {
+        display: flex;
+        width: max-content;
+        animation: scroll 40s linear infinite;
+    }
+
+    .animate-scroll:hover {
+        animation-play-state: paused;
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+         transform: translateX(-50%);
+        }
+    }
+
+    .carousel-item img {
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+</style>
+
+<script>
+    function setupCarousel() {
+        const track = document.getElementById('carousel-track');
+        if (!track) return;
+
+        const items = track.innerHTML;
+        track.innerHTML = items + items;
+    }
+
+    setupCarousel();
+    document.addEventListener('astro:after-swap', setupCarousel)
+</script>
