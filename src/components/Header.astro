@@ -34,11 +34,51 @@
           </svg>
         </a>
         
-        <div class="relative group cursor-pointer flex items-center gap-1">
-          <span>Líneas de trabajo</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        <div class="relative group cursor-pointer flex items-center gap-1 h-full py-4">
+
+          <span class="hover:text-offsetti-blue transition-colors">Líneas de trabajo</span>
+
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
+
+          <div class="absolute top-full left-0 w-64 bg-white shadow-xl border-t-2 border-offsetti-blue 
+                      invisible opacity-0 group-hover:visible group-hover:opacity-100 
+                      transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+              <ul class="py-2">
+                  <li>
+                      <a href="/producto/diseno-grafico" class="block px-6 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-offsetti-blue border-b border-gray-50">
+                          Diseño Gráfico
+                      </a>
+                  </li>
+                  <li>
+                      <a href="/producto/preimpresion" class="block px-6 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-offsetti-blue border-b border-gray-50">
+                          Preimpresión
+                      </a>
+                  </li>
+                  <li>
+                      <a href="/producto/impreseion-offset" class="block px-6 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-offsetti-blue border-b border-gray-50">
+                          Impresión offset
+                      </a>
+                  </li>
+                  <li>
+                      <a href="/producto/impresion-digital" class="block px-6 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-offsetti-blue">
+                          Impresión digital
+                      </a>
+                  </li>
+                  <li>
+                      <a href="/producto/encuadernacion" class="block px-6 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-offsetti-blue">
+                          Encuadernación
+                      </a>
+                  </li>
+                  <li>
+                      <a href="/producto/personalizacion" class="block px-6 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-offsetti-blue">
+                          Personalización
+                      </a>
+                  </li>
+              </ul>
+          </div>
+
         </div>
 
         <a href="/producto" class="hover:text-blue-600 transition-colors">Producto</a>
@@ -56,14 +96,33 @@
       </div>
 
       <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl z-50">
-        <nav class="flex flex-col p-6 gap-4 text-base font-bold text-gray-800 uppercase">
-          <a href="/" class="border-b border-gray-50 py-2">Inicio</a>
-          <a href="/producto" class="border-b border-gray-50 py-2">Producto</a>
-          <a href="/logistica" class="border-b border-gray-50 py-2">Logística</a>
-          <a href="/imprenta-ecologica" class="border-b border-gray-50 py-2">Imprenta ecológica</a>
-          <a href="/contacto" class="py-2 text-offsetti-blue">Contacto</a>
-        </nav>
+  <nav class="flex flex-col p-6 text-base font-bold text-gray-800 uppercase">
+    <a href="/" class="border-b border-gray-50 py-4">Inicio</a>
+    
+    <div class="border-b border-gray-50">
+      <button id="mobile-submenu-btn" class="w-full flex justify-between items-center py-4 uppercase font-bold focus:outline-none">
+        <span>Líneas de trabajo</span>
+        <svg id="mobile-arrow" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      
+      <div id="mobile-submenu-list" class="hidden flex-col bg-gray-50 px-4 pb-4 gap-3 normal-case font-normal text-gray-600">
+        <a href="/producto/diseno-grafico" class="py-2 border-l-2 border-offsetti-blue pl-4 mt-2">Diseño Gráfico</a>
+        <a href="/producto/preimpresion" class="py-2 border-l-2 border-offsetti-blue pl-4 mt-2">Preimpresión</a>
+        <a href="/producto/impreseion-offset" class="py-2 border-l-2 border-offsetti-blue pl-4 mt-2">Impresión offset</a>
+        <a href="/producto/impresion-digital" class="py-2 border-l-2 border-offsetti-blue pl-4">Impresión digital</a>
+        <a href="/producto/encuadernacion" class="py-2 border-l-2 border-offsetti-blue pl-4">Encuadernación</a>
+        <a href="/producto/personalizacion" class="py-2 border-l-2 border-offsetti-blue pl-4">Personalización</a>
+      </div>
     </div>
+
+    <a href="/producto" class="border-b border-gray-50 py-4">Producto</a>
+    <a href="/logistica" class="border-b border-gray-50 py-4">Logística</a>
+    <a href="/imprenta-ecologica" class="border-b border-gray-50 py-4">Imprenta ecológica</a>
+    <a href="/contacto" class="py-4 text-offsetti-blue">Contacto</a>
+  </nav>
+</div>
 
     </div>
   </div>
@@ -93,6 +152,19 @@
       mobileMenu?.classList.add('hidden');
       if (menuIcon) menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />';
     }
+  });
+
+  const submenuBtn = document.getElementById('mobile-submenu-btn');
+  const submenuList = document.getElementById('mobile-submenu-list');
+  const arrow = document.getElementById('mobile-arrow');
+
+  submenuBtn?.addEventListener('click', (e) => {
+    e.preventDefault(); // Evita que el botón haga scroll o cosas raras
+    submenuList?.classList.toggle('hidden');
+    submenuList?.classList.toggle('flex');
+    
+    // Rotar la flecha
+    arrow?.classList.toggle('rotate-180');
   });
 </script>
 

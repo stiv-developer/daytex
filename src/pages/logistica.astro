@@ -22,7 +22,7 @@ const images = [
 	title="Logistica"
 	description="Lorem ipsum dolor sit amet"
 > 
-     <section>
+    <section>
         <div class="grid md:grid-cols-2 mt-10">
             <div class="bg-offsetti-dark text-white text-end p-5">
                 <h1 class="text-xl">Almacenamiento y transporte</h1>
@@ -95,6 +95,7 @@ const images = [
     <section class="bg-[#d1d5db] py-12 overflow-hidden w-full">
       <div class="carousel-container relative flex">
         <div id="carousel-track" class="flex gap-4 animate-scroll">
+
           {images.map((img) => (
             <div class="carousel-item flex-shrink-0">
               <div class="h-[300px] md:h-[450px] w-auto shadow-md border-x-4 border-[#d1d5db] bg-white">
@@ -105,7 +106,7 @@ const images = [
               </div>
             </div>
           ))}
-          {/* El JS clonará estos elementos aquí para el efecto infinito */}
+
         </div>
       </div>
     </section>

@@ -1,0 +1,121 @@
+---
+import LineasTrabajo from "../../components/lineas-trabajo.astro";
+import Layout from '../../layouts/BlogPost.astro';
+import { Image } from 'astro:assets'
+import imgDiseno from '../../assets/lineas-trabajo/diseño-grafico/Artes-Graficas-Diseno-Grafico-fondo.jpg';
+
+import img1a from '../../assets/lineas-trabajo/diseño-grafico/carousel/Artes-Graficas-Diseno-Grafico-1A.jpg';
+import img2a from '../../assets/lineas-trabajo/diseño-grafico/carousel/Artes-Graficas-Diseno-Grafico-2A.jpg';
+import img4a from '../../assets/lineas-trabajo/diseño-grafico/carousel/Artes-Graficas-Diseno-Grafico-4A.jpg';
+import img6a from '../../assets/lineas-trabajo/diseño-grafico/carousel/Artes-Graficas-Diseno-Grafico-6A.jpg';
+import img7a from '../../assets/lineas-trabajo/diseño-grafico/carousel/Artes-Graficas-Diseno-Grafico-7A.jpg';
+import img9a from '../../assets/lineas-trabajo/diseño-grafico/carousel/Artes-Graficas-Diseno-Grafico-9A.jpg';
+import img11a from '../../assets/lineas-trabajo/diseño-grafico/carousel/Artes-Graficas-Diseno-Grafico-11A.jpg';
+
+const images = [
+    {  src: img1a, alt: 'Artes-Graficas-Diseno-Grafico-1A' },
+    {  src: img2a, alt: 'Artes-Graficas-Diseno-Grafico-2A' },
+    {  src: img4a, alt: 'Artes-Graficas-Diseno-Grafico-4A' },
+    {  src: img6a, alt: 'Artes-Graficas-Diseno-Grafico-6A' },
+    {  src: img7a, alt: 'Artes-Graficas-Diseno-Grafico-7A' },
+    {  src: img9a, alt: 'Artes-Graficas-Diseno-Grafico-9A' },
+    {  src: img11a, alt: 'Artes-Graficas-Diseno-Grafico-11A' },
+]
+
+---
+<Layout
+	title="Producto"
+	description="Lorem ipsum dolor sit amet"
+> 
+    <section>
+        <div class="bg-offsetti-brown grid md:grid-cols-2 mt-10">
+            <div class="bg-[#281700] text-white text-end p-5 my-10">
+                <h1 class="text-xl">Líneas de trabajo</h1>
+                <h1 class="text-3xl">Artes Gráficas | Diseño Gráfico</h1>
+            </div>
+            <div class="p-5 flex items-center">
+                <h2 class="text-white text-5xl text-center md:text-start">OFFSETTI</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full grid grid-cols-2">
+        <div class="bg-[#F3EDE6] p-10">
+            <h2 class="text-3xl">Artes Gráficas | Diseño Gráfico y todo el proceso de producción</h2>
+            <div>
+                <p class="text-xl py-5">Nuestro equipo de profesionales abarca el <strong>desarrollo gráfico</strong> de tu proyecto, no multipliques tus esfuerzos, nosotros nos encargamos de todo el proceso.</p>
+                <p class="text-xl py-5">Te propondremos un diseño de vanguardia, supervisaremos contigo las pruebas previas a la impresión como la maquetación, pruebas de color, ficticios, selección de papelería especial, etc. Finalmente, y siguiendo un proceso totalmente coordinado e integrado, te ofreceremos un producto final que cumpla con los estándares más elevados del mercado en cuanto a imagen y calidad de impresión.
+                    No multipliques tus esfuerzos, nosotros nos encargamos de la creatividad, la preimpresión, la impresión, la personalización y el envío. Todo ello en tiempo record y con la máxima calidad.</p>
+                <p class="text-2xl py-5">Artes Gráficas | Gestionamos el proceso completo de producción</p>
+            </div>
+        </div>
+        <div>
+            <Image src={imgDiseno} alt="Imagen diseño Grafico" class="h-[700px]"/>
+        </div>
+    </section>
+
+    <section class="bg-offsetti-brown py-12 overflow-hidden w-full">
+        <div class="carousel-container relative flex">
+            <div id="carousel-track" class="flex gap-4 animate-scroll">
+
+                {images.map((img) => (
+                    <div class="carousel-item flex-shrink-0">
+                        <div class="h-[300px] md:h-[450px] w-auto shadow-md border-x-4 border-[#d1d5db] bg-white">
+
+                            <Image src={img.src} 
+                            alt={img.alt} 
+                            class="h-full w-auto object-cover" />
+                        </div>
+                    </div>
+                ))}
+
+            </div>
+        </div>
+    </section>
+    <LineasTrabajo />
+</Layout>
+
+<style>
+
+    .carousel-container {
+        width: 100%;
+        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+    .animate-scroll {
+        display: flex;
+        width: max-content;
+        animation: scroll 40s linear infinite;
+    }
+
+    .animate-scroll:hover {
+        animation-play-state: paused;
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+         transform: translateX(-50%);
+        }
+    }
+
+    .carousel-item img {
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+</style>
+
+<script>
+    function setupCarousel() {
+        const track = document.getElementById('carousel-track');
+        if (!track) return;
+
+        const items = track.innerHTML;
+        track.innerHTML = items + items;
+    }
+
+    setupCarousel();
+    document.addEventListener('astro:after-swap', setupCarousel)
+</script>

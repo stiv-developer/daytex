@@ -10,6 +10,7 @@ module.exports = {
         'offsetti-dark': '#1e1e1e',
         'offsetti-pink': '#E6007E',
         'offsetti-yellow': '#FFED00',
+        'offsetti-brown': '#874C00',
       }
     },
   },
