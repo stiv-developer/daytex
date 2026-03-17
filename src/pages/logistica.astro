@@ -33,6 +33,7 @@ const images = [
             </div>
         </div>
     </section>
+
     <section class="py-16 md:py-24 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -90,23 +91,25 @@ const images = [
             </div>
         </div>
     </section>
+    
     <section class="bg-[#d1d5db] py-12 overflow-hidden w-full">
-  <div class="carousel-container relative flex">
-    <div id="carousel-track" class="flex gap-4 animate-scroll">
-      {images.map((img) => (
-        <div class="carousel-item flex-shrink-0">
-          <div class="h-[300px] md:h-[450px] w-auto shadow-md border-x-4 border-[#d1d5db] bg-white">
+      <div class="carousel-container relative flex">
+        <div id="carousel-track" class="flex gap-4 animate-scroll">
+          {images.map((img) => (
+            <div class="carousel-item flex-shrink-0">
+              <div class="h-[300px] md:h-[450px] w-auto shadow-md border-x-4 border-[#d1d5db] bg-white">
 
-            <Image src={img.src} 
-              alt={img.alt} 
-              class="h-full w-auto object-cover" />
-          </div>
+                <Image src={img.src} 
+                  alt={img.alt} 
+                  class="h-full w-auto object-cover" />
+              </div>
+            </div>
+          ))}
+          {/* El JS clonará estos elementos aquí para el efecto infinito */}
         </div>
-      ))}
-      {/* El JS clonará estos elementos aquí para el efecto infinito */}
-    </div>
-  </div>
-</section>
+      </div>
+    </section>
+    
     <LineasTrabajo />
 </Layout>
 

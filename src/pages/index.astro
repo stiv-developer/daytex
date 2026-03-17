@@ -11,6 +11,7 @@ import iconoImpresionOffset from '../assets/iconos/Artes-Graficas-Madrid-Offsett
 import iconoImpresionDigital from '../assets/iconos/Artes-Graficas-Madrid-Offsetti-Impresion-Digital.svg';
 import iconoEncuadernado from '../assets/iconos/Artes-Graficas-Madrid-Offsetti-Encuadernacion.svg';
 import iconoPersonalizado from '../assets/iconos/Artes-Graficas-Madrid-Offsetti-Personalizado.svg';
+import Productos from '../components/Productos.astro';
 
 const services = [
 	{
@@ -158,9 +159,9 @@ const services = [
 			</div>
 
 		</section>
-		<section class="w-full h-[700px] md:h-[1000px] flex flex-col overflow-hidden relative bg-gray-50">
+		<section class="w-full flex flex-col overflow-hidden relative bg-gray-50">
     
-			<div class="relative w-[60%] h-[10%] md:h-[15%] bg-offsetti-pink
+			<div class="relative w-[60%] h-[10%] h-[80px] h-[150px] bg-offsetti-pink
 						before:content-[''] before:absolute before:inset-0
 						before:bg-offsetti-pink before:origin-bottom-left
 						before:transform before:-skew-x-[35deg]
@@ -172,24 +173,7 @@ const services = [
 				</div>
 			</div>
 
-			<div class="flex-1 w-full relative z-10 flex items-center justify-center overflow-hidden">
-				
-				<div class="flex gap-8 px-10 overflow-x-auto snap-x scrollbar-hide w-full py-10">
-					{/* Ejemplo de Item del Catálogo */}
-					{[1, 2, 3, 4, 5].map((item) => (
-						<div class="min-w-[300px] md:min-w-[400px] h-[450px] bg-white shadow-xl rounded-lg snap-center flex flex-col overflow-hidden group">
-							<div class="h-2/3 bg-gray-200 overflow-hidden">
-								<img src={`/producto-${item}.jpg`} alt="Producto" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-							</div>
-							<div class="p-6">
-								<h3 class="font-bold text-xl uppercase">Producto Imprenta {item}</h3>
-								<p class="text-gray-600 text-sm mt-2">Descripción breve del producto de alta calidad.</p>
-								<button class="mt-4 text-offsetti-pink font-bold uppercase text-xs tracking-widest">Ver detalles →</button>
-							</div>
-						</div>
-					))}
-				</div>
-			</div>
+			<Productos />
 
 			<div class="relative flex justify-end">
 				<div class="relative w-[80%] md:w-[60%] h-[80px] h-[150px] bg-offsetti-yellow
@@ -207,7 +191,7 @@ const services = [
 			</div>
 
 		</section>
-		<section class=" w-full h-[1000px] overflow-hidden">
+		<section class="w-full h-[1000px] overflow-hidden">
 			<div class="bg-offsetti-yellow">
 				<div class="flex justify-center py-5">
 					<p class="text-black text-sm md:text-lg font-medium leading-tight p-3">
