@@ -1,8 +1,94 @@
 ---
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import LineasTrabajo from "../components/lineas-trabajo.astro";
+import Layout from '../layouts/BlogPost.astro';
 ---
 
-<Header />
-<h1>Imprenta Ecologica</h1>
-<Footer />
+<Layout
+	title="imprenta-ecologica"
+	description="Lorem ipsum dolor sit amet"
+> 
+    <section class="relative w-full h-[100%] min-h-[800px] overflow-hidden flex items-center">
+  
+        <video 
+            autoplay 
+            muted 
+            loop 
+            playsinline 
+            class="absolute inset-0 w-full h-full object-cover z-0"
+        >
+            <source src="/videos/Artes-Graficas-Calidad-Sostenible-3.mp4" type="video/mp4" />
+        </video>
+
+        <div class="absolute inset-0 z-10 opacity-40 pointer-events-none" 
+            style="background-image: radial-gradient(circle, #000 1px, transparent 1px); background-size: 4px 4px;">
+        </div>
+
+        <div class="absolute top-0 z-20 w-full max-w-7xl mx-auto">
+            <div class="w-full md:w-[45%] bg-[#42a948]/90 p-8 md:p-12 text-white shadow-2xl">
+            <h2 class="text-3xl md:text-4xl font-light mb-6 text-right leading-tight">
+                Imprenta Ecológica <br />
+                <span class="font-bold uppercase tracking-tighter">en Madrid</span>
+            </h2>
+            
+            <div class="text-sm md:text-base space-y-4 text-right leading-relaxed font-light opacity-95">
+                <p>
+                En Offsetti, Somos conscientes del incremento constante de las exigencias de nuestros clientes, en calidad, precio y plazo de entrega.
+                </p>
+                <p>
+                Offsetti debe asegurar la calidad de sus productos y servicios, fabricar en el menor tiempo posible, al costo más bajo y asegurando una adecuada gestión de residuos, reducción de consumos y minimización de impactos en el medio ambiente.
+                </p>
+                <p>
+                Solo procediendo así se consigue la captación de nuevos clientes, y la satisfacción de los ya existentes.
+                </p>
+            </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-[20%] right-0 z-30 w-[65%] md:w-[50%] bg-black/80 py-4 px-10">
+            <p class="text-white text-xl md:text-2xl font-light tracking-widest uppercase">
+            Respetuosos con el <span class="font-bold">medio ambiente</span>
+            </p>
+        </div>
+
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            
+            <header class="mb-10">
+            <h2 class="text-2xl md:text-3xl font-light text-gray-500">
+                Imprenta Ecológica | <span class="text-gray-800 font-normal">Gestión Ambiental</span>
+            </h2>
+            <p class="mt-6 text-gray-600 leading-relaxed text-lg">
+                La Dirección de Offsetti, ha implantado controles en cada fase del proceso productivo, que garanticen que el producto entregado sea el correcto, teniendo en cuenta que dicho proceso empieza con la labor comercial, y continúa en todas las actividades hasta terminar en la entrega al Cliente.
+            </p>
+            </header>
+
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8 my-16">
+            <div class="w-48 h-40 border-[3px] border-gray-800 rounded-[2.5rem] flex items-center justify-center p-6 transform -rotate-3">
+                <svg class="w-20 h-20 text-gray-800" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                    <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
+                </svg>
+            </div>
+            
+            <div class="text-center md:text-left">
+                <h3 class="text-5xl md:text-7xl font-bold text-gray-800 leading-none tracking-tighter">
+                Trabajo<br/>continuado
+                </h3>
+            </div>
+            </div>
+
+            <footer class="text-gray-600 leading-relaxed space-y-6 text-[17px]">
+            <p>
+                El sistema de la <strong>calidad</strong> y <strong>gestión ambiental</strong> implantado en Offsetti Artes Gráficas, satisface los requisitos aplicables a las Normas <strong>UNE-EN-ISO 9001, UNE-EN-ISO 14001, FSC®-C016076</strong> y <strong>PEFCTM</strong>, estando estructurado y adaptado a la actividad de <strong>"Artes Gráficas mediante la impresión de Offset en plano"</strong>. Esta política obliga a estar permanentemente actualizados. 
+            </p>
+            <p>
+                Es por eso que Offsetti adoptará las <strong>mejoras</strong> convenientes en cada momento para conseguir una mayor <strong>eficiencia</strong> interna, con aplicación o adecuación de nuestros medios a las nuevas tecnologías, todo ello para dar un mejor servicio que redunde en una creciente <strong>satisfacción de los clientes</strong>.
+            </p>
+            </footer>
+
+        </div>
+    </section>
+    <LineasTrabajo />
+</Layout>
