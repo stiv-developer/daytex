@@ -149,14 +149,10 @@ const images = [
   function setupCarousel() {
     const track = document.getElementById('carousel-track');
     if (!track) return;
-
-    // Clonamos el contenido una vez para que cuando el primero termine, 
-    // el segundo ya esté entrando y no se vea el hueco blanco.
+    
     const items = track.innerHTML;
     track.innerHTML = items + items;
   }
-
-  // Ejecutar al cargar y si usas View Transitions de Astro
   setupCarousel();
   document.addEventListener('astro:after-swap', setupCarousel);
 </script>
