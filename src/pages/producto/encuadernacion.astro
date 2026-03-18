@@ -1,0 +1,132 @@
+---
+import LineasTrabajo from "../../components/lineas-trabajo.astro";
+import Layout from '../../layouts/BlogPost.astro';
+import { Image } from 'astro:assets';
+import imgDiseno from '../../assets/lineas-trabajo/personalizacion/Artes-Graficas-Personalizacion-3.jpg';
+
+import img1 from '../../assets/lineas-trabajo/personalizacion/carousel/Artes-Graficas-Personalizacion-1.jpg';
+import img2 from '../../assets/lineas-trabajo/personalizacion/carousel/Artes-Graficas-Personalizacion-2.jpg';
+import img3 from '../../assets/lineas-trabajo/personalizacion/carousel/Artes-Graficas-Personalizacion-3.jpg';
+import img4 from '../../assets/lineas-trabajo/personalizacion/carousel/Artes-Graficas-Personalizacion-4.jpg';
+import img5 from '../../assets/lineas-trabajo/personalizacion/carousel/Artes-Graficas-Personalizacion-5.jpg';
+
+
+const images = [
+    { src: img1, alt: 'Artes-Graficas-Personalizacion-1'},
+    { src: img2, alt: 'Artes-Graficas-Personalizacion-2'},
+    { src: img3, alt: 'Artes-Graficas-Personalizacion-3'},
+    { src: img4, alt: 'Artes-Graficas-Personalizacion-4'},
+    { src: img5, alt: 'Artes-Graficas-Personalizacion-5'},
+]
+---
+
+<Layout title="Encuadernacion" description="asda">
+
+    <section>
+        <div class="bg-[#00A080] grid md:grid-cols-2 mt-10">
+            <div class="bg-[#003026] text-white md:text-end p-5 my-10">
+                <h1 class="text-xl">Líneas de trabajo</h1>
+                <h1 class="text-3xl">Artes Gráficas | Encuadernación</h1>
+            </div>
+            <div class="p-5 hidden md:flex items-center">
+                <h2 class="text-white text-5xl text-center md:text-start">OFFSETTI</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full grid  md:grid-cols-2">
+        <div class="bg-[#E6F6F3] p-10">
+            <h2 class="text-2xl md:text-3xl">Encuadernación con los equipos más modernos</h2>
+            <div>
+                <p class="md:text-xl py-2 md:py-3">Plegadora Star.</p>
+                <p class="md:text-xl py-2 md:py-3">Plegadora de bolsas Heildelberg Sthalfolder top-line de tres estaciones con sistema Rotari.</p>
+                <p class="md:text-xl py-2 md:py-3">Plegadora de bolsas Heildelberg Sthal fólder top-line de tres estaciones con sistema Rotari y engomadora tanto en cola fría como caliente.</p>
+                <p class="md:text-xl py-2 md:py-3">Plegadora BAUM con sistema de encolado tanto en cola fría como cola caliente, especialmente diseñada para realización de complets.</p>
+                <p class="md:text-xl py-2 md:py-3">Guillotina rápida Polar 115E, robotizada, con elevador de pila y vibrador automático con rodillo expulsor con sistema Transomat.</p>
+                <p class="md:text-xl py-2 md:py-3">Guillotina rápida Polar 137E, robotizada, con elevador de pila y vibrador automática con rodillo expulsor con sistema Transomat.</p>
+                <p class="md:text-xl py-2 md:py-3">Tres retractiladoras automáticas.</p>
+                <p class="md:text-xl py-2 md:py-3">Tren de grapado Horizon SPF200A</p>
+                <p class="md:text-xl py-2 md:py-3">Encuadernadora rústica  BQ270</p>
+                <p class="md:text-xl py-2 md:py-3">Dos maquinas de estampación, engomados en cola caliente y fría, una cosedora, máquina de hendir, dos volteadoras, tres carretillas elevadoras…</p>
+            </div>
+        </div>
+        <div class="md:flex md:justify-end bg-[#E6F6F3]">
+            <Image src={imgDiseno} alt="Imagen diseño Grafico" class="md:w-[80%] md:h-[700px]"/>
+        </div>
+    </section>
+
+    <section class="bg-[#00A080] py-20 overflow-hidden w-full">
+        <div class="carousel-container relative flex">
+            <div id="carousel-track" class="flex gap-4 animate-scroll">
+
+                {images.map((img) => (
+                    <div class="carousel-item flex-shrink-0">
+                        <div class="h-[300px] md:h-[450px] w-auto shadow-md border-x-4 border-[#d1d5db] bg-white">
+
+                            <Image src={img.src} 
+                            alt={img.alt} 
+                            class="h-full w-auto object-cover" />
+                        </div>
+                    </div>
+                ))}
+
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#00A080] py-20 pl-24">
+        <div class="bg-[#E6F6F3] p-5 w-[70%]">
+            <h3 class="text-2xl md:text-4xl">Artes Gráficas | Encuadernación</h3>
+            <p class="md:text-xl py-2 md:py-5">En Offsetti siempre hemos querido ofrecerte la máxima calidad de impresión y el mejor acabado posible. Para ello, todos los procesos intermedios deben ser llevados a cabo por los nuestros mejores profesionales y con el mejor equipo posible.</p>
+            <p class="md:text-xl py-2 md:py-5">Las plegadoras Stahlfolder cubren una amplia gama de tipos de plegado. Son muy fiables y realizan con facilidad trabajos de plegado complejo. Después de un cuidadoso proceso de preimpresión e impresión, el corte, plegado y encuadernado deben seguir las mismas pautas de calidad. En Offsetti controlamos cada parte del proceso para que tu producto cumpla con los más altos estándares de calidad, y en los mejores plazos posibles.</p>
+            <p class="md:text-3xl py-2 md:py-5">Artes Gráficas | Encuadernación sostenible</p>
+        </div>
+    </section>
+
+    <LineasTrabajo />
+</Layout>
+
+<style>
+
+   .carousel-container {
+        width: 100%;
+        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+    .animate-scroll {
+        display: flex;
+        width: max-content;
+        animation: scroll 40s linear infinite;
+    }
+
+    .animate-scroll:hover {
+        animation-play-state: paused;
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+         transform: translateX(-50%);
+        }
+    }
+
+    .carousel-item img {
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+</style>
+
+<script>
+    function setupCarousel() {
+        const track = document.getElementById('carousel-track');
+        if (!track) return;
+
+        const items = track.innerHTML;
+        track.innerHTML = items + items;
+    }
+
+    setupCarousel();
+    document.addEventListener('astro:after-swap', setupCarousel)
+</script>
