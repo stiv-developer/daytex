@@ -4,28 +4,16 @@ import Layout from '../layouts/BlogPost.astro';
 
 const departamentos = [
   {
-    nombre: "Dep. Comercial",
-    emails: ["roberto@offsetti.com", "angel@offsetti.com"],
+    nombre: "Ventas",
+    emails: ["ventas@daytex.pe"],
+  },
+  {
+    nombre: "Contabilidad",
+    emails: ["contabilidad@daytex.pe"],
   },
   {
     nombre: "Administración",
-    emails: ["miguel@offsetti.com", "mercedes@offsetti.com", "recepcion@offsetti.com"],
-  },
-  {
-    nombre: "Producción",
-    emails: ["angelcorral@offsetti.com", "oscar@offsetti.com"],
-  },
-  {
-    nombre: "Presupuestos",
-    emails: ["rafa@offsetti.com"],
-  },
-  {
-    nombre: "Calidad y otros",
-    emails: ["jpedrohijo@offsetti.com"],
-  },
-  {
-    nombre: "Preimpresión",
-    emails: ["ctp@offsetti.com"],
+    emails: ["administracion@daytex.com"],
   },
 ];
 ---
@@ -33,48 +21,83 @@ const departamentos = [
 	title="Contactos"
 	description="Lorem ipsum dolor sit amet"
 > 
-    <section>
-        <div class="grid md:grid-cols-2 mt-10">
-            <div class="bg-offsetti-dark text-white text-end p-5">
-                <h1 class="text-xl">Estamos a tu servicio</h1>
-                <h1 class="text-3xl">Artes Gráficas | Imprenta | Contacto</h1>
-            </div>
-            <div class="p-5">
-                <h2 class="text-5xl text-center md:text-start">OFFSETTI</h2>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="relative z-10 max-w-6xl mx-auto px-6">
-    <div class="text-center my-12">
-      <p class="text-gray-600 text-lg md:text-xl font-light">
-        El equipo de Offsetti estará encantado en atender cualquier duda o solicitud:
-      </p>
+    <section class="relative overflow-hidden">
+  <div class="grid grid-cols-1 md:grid-cols-2 mt-16 min-h-[140px]">
+    
+    <div class="relative bg-offsetti-dark text-white p-8 md:p-12 flex flex-col justify-center items-end z-20
+                after:content-[''] after:absolute after:inset-0 after:bg-offsetti-dark 
+                after:origin-bottom-right after:transform after:skew-x-[-15deg] md:after:skew-x-[-25deg] after:z-[-1] after:translate-x-6 md:after:translate-x-12">
+      
+      <div class="text-right space-y-1">
+        <h3 class="text-[#009EE0] font-bold uppercase tracking-[0.3em] text-[10px] md:text-xs italic">
+          Estamos a tu servicio
+        </h3>
+        <h2 class="text-2xl md:text-4xl font-black italic uppercase tracking-tighter leading-none">
+          Artes Gráficas <span class="text-white/40">|</span> <br class="md:hidden"/> 
+          Imprenta <span class="text-white/40">|</span> Contacto
+        </h2>
+      </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-      {departamentos.map((dep) => (
-        <div class="bg-white rounded-[2rem] shadow-lg overflow-hidden border border-gray-100 flex flex-col items-center pb-6">
-          <div class="bg-offsetti-blue w-full py-3 px-4 text-center mb-4">
-            <h3 class="text-white font-bold text-lg md:text-xl">
-              {dep.nombre}
-            </h3>
-          </div>
-          
-          <div class="flex flex-col items-center space-y-2 px-4">
-            {dep.emails.map((email) => (
-              <a 
-                href={`mailto:${email}`} 
-                class="text-gray-700 hover:text-offsetti-blue transition-colors text-base md:text-lg break-all text-center"
-              >
-                {email}
-              </a>
-            ))}
-          </div>
-        </div>
-      ))}
+    <div class="bg-white p-8 md:p-12 flex items-center justify-center md:justify-start pl-12 md:pl-24">
+      <h1 class="text-5xl md:text-7xl font-black tracking-tighter text-black italic leading-none group cursor-default">
+        DAY<span class="text-[#009EE0] group-hover:text-black transition-colors duration-300">TEX</span>
+      </h1>
     </div>
+
   </div>
+</section>
+    <section class="bg-gray-50 py-20 relative overflow-hidden">
+      <div class="absolute top-0 left-0 w-full h-1 bg-[#009EE0]"></div>
+
+      <div class="relative z-10 max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16 space-y-4">
+          <h2 class="text-black font-black italic uppercase text-3xl md:text-5xl tracking-tighter">
+            Contacto <span class="text-[#009EE0]">Directo</span>
+          </h2>
+          <p class="text-gray-500 text-lg md:text-xl font-light max-w-2xl mx-auto">
+            El equipo de <span class="font-bold text-black italic">DAYTEX</span> estará encantado de atender cualquier duda o solicitud.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {departamentos.map((dep) => (
+            <div class="group relative bg-white p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border-b-4 border-gray-200 hover:border-[#009EE0] flex flex-col items-center text-center">
+              
+              <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#009EE0] transition-colors duration-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-gray-400 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+
+              <h3 class="text-black font-black uppercase italic text-xl mb-4 tracking-tight">
+                {dep.nombre}
+              </h3>
+              
+              <div class="space-y-3 w-full">
+                {dep.emails.map((email) => (
+                  <a 
+                    href={`mailto:${email}`} 
+                    class="block py-3 px-4 bg-gray-50 text-[#009EE0] font-bold text-sm md:text-base rounded-sm hover:bg-black hover:text-white transition-all duration-300 break-all border border-transparent hover:border-black"
+                  >
+                    {email}
+                  </a>
+                ))}
+              </div>
+
+              <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Enviar mensaje →</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-20 text-center">
+            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.5em]">
+                Atención al cliente | Lunes a Viernes 09:00 - 18:00
+            </p>
+        </div>
+      </div>
     </section>
 
     <section class="py-20 bg-gray-50">
