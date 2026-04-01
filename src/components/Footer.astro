@@ -1,5 +1,6 @@
 ---
-// src/components/Footer.astro
+import {Image} from 'astro:assets';
+import logo from '../assets/logos/DAYTEX-azul.svg';
 // Puedes personalizar los enlaces aquí
 const lineasTrabajo = [
   "Diseño Gráfico",
@@ -74,14 +75,7 @@ const enlacesLegales = [
       </div>
 
       <div class="flex flex-col items-center lg:items-end justify-center">
-        <div class="text-right">
-          <p class="text-5xl md:text-6xl font-black tracking-tighter text-white italic leading-none">
-            DAY<span class="text-black">TEX</span>
-          </p>
-          <p class="text-[10px] uppercase tracking-[0.4em] font-bold text-black mt-2">
-            Artes Gráficas | Lima
-          </p>
-        </div>
+        <Image src={logo} alt="logo daytex" class="w-30 h-30 md:w-50 md:h-50"/>
       </div>
     </div>
   </div>
